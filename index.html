@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MNRRA Nest Survey Videos</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Javascript -->
+    <script src = "js/vendor/jquery/dist/jquery.min.js"></script>
+    <script src=  "js/vendor/video-js/dist/video-js/video.js"></script>
+    <script src=  "js/vendor/gsap/src/minified/TweenMax.min.js"></script>
+    <script src=  "js/Screensaver.js"></script>
+    <script src=  "js/main.js"></script>
+
+  </head>
+  <body>
+
+    <div id="wrapper">
+
+    <!-- Video Selection Screen -->
+      <div id="selection_screen" class="screen">
+
+        <h2>Studying The Park's Eagles</h2>
+
+        <div class="video-button poster" data-role="button" data-video="videos/why_study_bald_eagles.mp4">
+        </div>
+
+        <div class="video-button poster" data-role="button" data-video="videos/surveying_nests_from_a_helicopter.mp4">
+        </div>
+
+        <div class="video-button poster" data-role="button" data-video="videos/climbing_into_a_nest.mp4">
+        </div>
+
+        <div class="video-button poster" data-role="button" data-video="videos/how_are_the_eagles_in_the_park_doing.mp4">
+        </div>
+
+        <video id="background_video" class="video-js vjs-default-skin">
+          <source src="./videos/background.mp4" type="video/mp4">
+        </video>
+
+      </div>
+
+      <!-- Full Screen Video Player -->
+      <div id="player_screen" class="screen" style="display:none;">
+
+        <video id="fullscreen_video" class="video-js vjs-default-skin"></video>
+
+        <div class="home-btn" data-role="button"></div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
