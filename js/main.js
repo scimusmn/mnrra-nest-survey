@@ -31,7 +31,21 @@ $(document).ready(function() {
         showFullscreenVideo(src);
       },});
 
-      TweenMax.to($(this), 0.8, { css: { opacity:1, scale:1.01 }, delay:0.075, ease:Elastic.easeOut});
+      TweenMax.to($(this), 0.8, { css: { opacity:1, scale:1.02 }, delay:0.02, ease:Elastic.easeOut});
+
+    });
+
+    // Shrink on mousedown
+    $('.video-button').on('mousedown', function() {
+
+        TweenMax.to($(this), 0.05, { css: { scale:0.99 }, ease:Power3.easeOut});
+
+    });
+
+    // Reset scale on mouseout
+    $('.video-button').on('mouseout', function() {
+
+        TweenMax.to($(this), 0.0, { css: { scale:1.0 }});
 
     });
 
@@ -105,9 +119,13 @@ $(document).ready(function() {
 
   function transitionInSelectionScreen() {
 
-    backgroundPlayer.currentTime = 0;
+    backgroundPlayer.currentTime(0.0);
 
-    // TODO - Tweens for transitioning back from video.
+    // Slide btns from bottom
+    TweenMax.staggerFrom('.video-button', 1, {bottom:-800, delay:0.25, ease:Power3.easeOut}, 0.2);
+
+    // Fade unchosen butttons back in
+    TweenMax.to($('.video-button'), 0.4, { css: { opacity:1, scale:1 }, delay:1.5, ease:Power3.easeIn });
 
   }
 
@@ -138,7 +156,7 @@ $(document).ready(function() {
   function setupScreenSaver() {
 
     //3 minute screensaver timeout (one minute more than longest video)
-    screensaver = new Screensaver(1 * 60, 'videos/screensaver.mp4',
+    screensaver = new Screensaver(3 * 60, 'videos/screensaver.mp4',
         function() {
 
             // Go to screensaver
