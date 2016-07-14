@@ -120,14 +120,26 @@ body {
   user-select: none;
 
   /* hide cursor */
-  cursor: none !important;
+  /*cursor: none !important;*/
 
   width: 1920px;
   height: 1080px;
   overflow: hidden;
-  color: #FFF;
+  color: #e5e5e5;
   background-color: #000;
 
+}
+
+h1{
+  font-size: 4em;
+}
+
+h3{
+  font-size: 1.4em;
+}
+
+p{
+  font-size: 1.2em;
 }
 
 #wrapper {
@@ -149,9 +161,11 @@ img {
 }
 
 .title {
-  top: 0px;
-  left: 0px;
+  top: 50px;
+  left: 600px;
+
   position: absolute;
+  text-transform: uppercase;
 }
 
 .left-col{
@@ -176,6 +190,8 @@ img {
 #selection_screen .poster{
   bottom:0px;
   background-color: rgba(43,71,73, 0.85);
+
+  z-index: 1;
 }
 
 /*Columns*/
@@ -196,9 +212,13 @@ img {
   bottom:0px;
 }
 
+#background_video {
+  z-index: 0;
+}
 
 #fullscreen_video {
   position: absolute;
+  z-index: 3;
 }
 
 .video-button img,
@@ -228,6 +248,8 @@ img {
   left: 0px;
 
   background: url(../img/homeIcon.png) no-repeat center;
+
+  z-index: 4;
 }
 
 .home-btn:active{

@@ -51,7 +51,7 @@ $(document).ready(function() {
     // Initialize player
     backgroundPlayer = videojs('background_video', options, function() {
 
-      this.play();
+      this.src([{ type: 'video/mp4', src: './videos/background.mp4' }]);
 
       // Player (this) is initialized and ready.
       this.on('playing', function() {
@@ -88,6 +88,7 @@ $(document).ready(function() {
       this.on('ended', function() {
 
         hideFullscreenVideo();
+        transitionInSelectionScreen();
 
       });
 
@@ -99,6 +100,14 @@ $(document).ready(function() {
       hideFullscreenVideo();
 
     });
+
+  }
+
+  function transitionInSelectionScreen() {
+
+    backgroundPlayer.currentTime = 0;
+
+    // TODO - Tweens for transitioning back from video.
 
   }
 
@@ -129,7 +138,17 @@ $(document).ready(function() {
   function setupScreenSaver() {
 
     //3 minute screensaver timeout (one minute more than longest video)
-    screensaver = new Screensaver(3 * 60, 'videos/screensaver.mp4');
+    screensaver = new Screensaver(1 * 60, 'videos/screensaver.mp4',
+        function() {
+
+            // Go to screensaver
+
+        },
+        function() {
+
+            // Awake from SS
+
+        });
 
   }
 
