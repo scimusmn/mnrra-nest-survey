@@ -28,7 +28,12 @@ $(document).ready(function() {
 
       // Quick depth animation highlighting selected video
       TweenMax.to($(this).siblings('.video-button'), 0.35, { css: { opacity:0.6, scale:1 }, delay:0.01, ease:Power2.easeOut, onComplete:function() {
-        showFullscreenVideo(src);
+
+        // Wait one second. Start video.
+        setTimeout(function() {
+          showFullscreenVideo(src);
+        }, 1000);
+
       },});
 
       TweenMax.to($(this), 0.8, { css: { opacity:1, scale:1.02 }, delay:0.02, ease:Elastic.easeOut});
@@ -38,14 +43,14 @@ $(document).ready(function() {
     // Shrink on mousedown
     $('.video-button').on('mousedown', function() {
 
-        TweenMax.to($(this), 0.05, { css: { scale:0.99 }, ease:Power3.easeOut});
+      TweenMax.to($(this), 0.05, { css: { scale:0.99 }, ease:Power3.easeOut});
 
     });
 
     // Reset scale on mouseout
     $('.video-button').on('mouseout', function() {
 
-        TweenMax.to($(this), 0.0, { css: { scale:1.0 }});
+      TweenMax.to($(this), 0.0, { css: { scale:1.0 }});
 
     });
 
@@ -60,12 +65,13 @@ $(document).ready(function() {
   function setupBackgroundVideo() {
 
     // Create video tag
-    var options = { 'controls': false, 'autoplay': true, 'loop': true, 'preload': 'auto' };
+    var options = { 'controls': false, 'autoplay': false, 'loop': true, 'preload': 'auto' };
 
     // Initialize player
     backgroundPlayer = videojs('background_video', options, function() {
 
       this.src([{ type: 'video/mp4', src: './videos/background.mp4' }]);
+      this.play();
 
       // Player (this) is initialized and ready.
       this.on('playing', function() {
@@ -95,7 +101,7 @@ $(document).ready(function() {
 
       this.on('waiting', function() {
 
-        console.log('Video waiting.');
+        // console.log('Video waiting.');
 
       });
 
@@ -108,7 +114,7 @@ $(document).ready(function() {
 
     });
 
-    //Home button
+    // Home button
     $('.home-btn').on('click', function() {
 
       hideFullscreenVideo();
@@ -131,6 +137,7 @@ $(document).ready(function() {
 
   function showFullscreenVideo(vidSrc) {
 
+    videoPlayer.pause();
     videoPlayer.src([{ type: 'video/mp4', src: vidSrc }]);
 
   }
@@ -159,12 +166,13 @@ $(document).ready(function() {
     screensaver = new Screensaver(3 * 60, 'videos/screensaver.mp4',
         function() {
 
-            // Go to screensaver
+          // Go to screensaver
 
         },
+
         function() {
 
-            // Awake from SS
+          // Awake from SS
 
         });
 
