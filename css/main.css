@@ -1,5 +1,23 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
+/* Import Fonts */
+@font-face {
+  font-family: 'National-Bold';
+  src: url('fonts/National-Bold.otf');
+}
+@font-face {
+  font-family: 'National-Light';
+  src: url('fonts/National-Light.otf');
+}
+@font-face {
+  font-family: 'National-Medium';
+  src: url('fonts/National-Medium.otf');
+}
+@font-face {
+  font-family: 'National-Semibold';
+  src: url('fonts/National-Semibold.otf');
+}
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -127,19 +145,29 @@ body {
   overflow: hidden;
   color: #e5e5e5;
   background-color: #000;
+  letter-spacing: 0.09em;
+  line-height: 1.9em;
 
 }
 
 h1{
-  font-size: 4em;
+  font-size: 5.8em;
+  font-family: 'National-Semibold';
 }
 
 h3{
-  font-size: 1.4em;
+  font-size: 1.6em;
+  font-family: 'National-Medium';
 }
 
 p{
-  font-size: 1.2em;
+  font-size: 1.3em;
+  font-family: 'National-Light';
+}
+
+p strong{
+  font-weight: 100;
+  font-family: 'National-Bold';
 }
 
 #wrapper {
@@ -161,15 +189,15 @@ img {
 }
 
 .title {
-  top: 50px;
-  left: 600px;
+  top: 15px;
+  left: 550px;
 
   position: absolute;
   text-transform: uppercase;
 }
 
 .left-col{
-  width: 375px;
+  width: 365px;
   left: 40px;
   top: 440px;
   position: absolute;
@@ -184,13 +212,14 @@ img {
 .poster h3 {
   margin: 20px 30px;
   text-align: center;
+  vertical-align: middle;
+
 }
 
 /*Rows*/
 #selection_screen .poster{
   bottom:0px;
-  background-color: rgba(43,71,73, 0.85);
-
+  background-color: rgba(43,71,73, 0.7);
   z-index: 1;
 }
 
