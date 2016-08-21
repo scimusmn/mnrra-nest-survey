@@ -32,6 +32,11 @@ $(document).ready(function() {
         // Wait one second. Start video.
         setTimeout(function() {
           showFullscreenVideo(src);
+
+          // Stop background video
+          backgroundPlayer.currentTime(0.0);
+          backgroundPlayer.pause();
+
         }, 1000);
 
       },});
@@ -143,6 +148,10 @@ $(document).ready(function() {
   }
 
   function hideFullscreenVideo() {
+
+    // Start the background video
+    backgroundPlayer.currentTime(0.0);
+    backgroundPlayer.play();
 
     //Hide the video
     $('#player_screen').fadeOut('fast', function() {
