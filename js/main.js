@@ -37,7 +37,7 @@ $(document).ready(function() {
           backgroundPlayer.currentTime(0.0);
           backgroundPlayer.pause();
 
-        }, 1000);
+        }, 300);
 
       },});
 
