@@ -171,17 +171,23 @@ $(document).ready(function() {
 
   function setupScreenSaver() {
 
-    //3 minute screensaver timeout (one minute more than longest video)
+    // 3 minute screensaver timeout (one minute more than longest video)
     screensaver = new Screensaver(3 * 60, 'videos/screensaver.mp4',
         function() {
 
           // Go to screensaver
+          // Stop background video
+          backgroundPlayer.currentTime(0.0);
+          backgroundPlayer.pause();
 
         },
 
         function() {
 
           // Awake from SS
+          // Start the background video
+          backgroundPlayer.currentTime(0.0);
+          backgroundPlayer.play();
 
         });
 
